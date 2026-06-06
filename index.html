@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaik Sohel | Cybersecurity & SOC Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #000000;
+            --bg-soft: #050505;
+            --bg-card: #0A0A0A;
+        }
+        body.alt-theme {
+            --bg-main: #0D1117;
+            --bg-soft: #161B22;
+            --bg-card: #21262D;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: #ffffff; transition: background-color 0.4s ease; }
+        .accent-lime { color: #A3E635; }
+        .bg-lime { background-color: #A3E635; }
+        .hero-mask { background: linear-gradient(to right, var(--bg-main) 15%, transparent 100%); }
+        .card-dark { background-color: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .nav-blur { backdrop-filter: blur(15px); background: rgba(0,0,0,0.8); }
+        
+        #cert-modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 20px; }
+        #cert-modal.active { display: flex; }
+        
+        .toggle-dot { transition: all 0.3s ease; }
+        input:checked ~ .toggle-dot { transform: translateX(100%); background-color: #A3E635; }
+    </style>
+</head>
+<body>
+
+    <div id="cert-modal" onclick="closeModal()">
+        <div class="relative max-w-4xl w-full">
+            <button class="absolute -top-10 right-0 text-white font-bold uppercase text-xs tracking-widest">Close ✕</button>
+            <img id="modal-img" src="" class="w-full h-auto rounded-lg border border-white/10 shadow-2xl">
+        </div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <label for="theme-toggle" class="flex items-center cursor-pointer ml-4">
+                    <div class="relative">
+                        <input type="checkbox" id="theme-toggle" class="sr-only" onclick="toggleTheme()">
+                        <div class="block bg-white/10 w-10 h-6 rounded-full border border-white/10"></div>
+                        <div class="toggle-dot absolute left-1 top-1 bg-gray-400 w-4 h-4 rounded-full"></div>
+                    </div>
+                    <div class="ml-3 text-gray-400 text-[10px] font-bold uppercase tracking-widest">Theme</div>
+                </label>
+            </div>
+
+            <div class="hidden md:flex space-x-8 text-xs uppercase tracking-[0.2em] font-medium text-gray-400">
+                <a href="#home" class="hover:text-white transition">Home</a>
+                <a href="#about" class="hover:text-white transition">Profile</a>
+                <a href="#training" class="hover:text-white transition">Training</a>
+                <a href="#projects" class="hover:text-white transition">Projects</a>
+                <a href="#certifications" class="hover:text-white transition">Certifications</a>
+                <a href="#education" class="hover:text-white transition">Education</a>
+            </div>
+            <a href="mailto:shaiksohelsonu12@gmail.com" class="bg-lime text-black px-6 py-2 rounded-sm text-xs font-bold uppercase tracking-widest hover:brightness-110 transition">Connect</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="Images/ShaikSohel.jpg" alt="Shaik Sohel Profile" class="w-full h-full object-cover object-top md:object-right-top opacity-60">
+            <div class="absolute inset-0 hero-mask"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <h4 class="accent-lime font-bold tracking-[0.4em] text-xs uppercase mb-4">SOC Analyst</h4>
+            <h1 class="text-6xl md:text-8xl font-light tracking-tighter mb-6 leading-none text-white">
+                Hi, I am <br><span class="font-bold uppercase">Shaik Sohel.</span>
+            </h1>
+            <p class="text-gray-300 max-w-xl text-lg mb-10 leading-relaxed">
+                Dedicated and detail-oriented SOC Analyst with hands-on experience in SIEM monitoring, log analysis, and threat detection. Proven capability in deploying a multi-endpoint Wazuh/Splunk home lab to simulate and analyze real-world cyber threats.
+            </p>
+            <div class="flex space-x-4">
+                <a href="#about" class="border border-white/20 px-8 py-3 hover:bg-white hover:text-black transition uppercase text-xs font-bold tracking-widest">Personal Details</a>
+                <a href="#projects" class="bg-lime text-black px-8 py-3 font-bold uppercase text-xs tracking-widest hover:bg-white transition-colors">View SOC Labs</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 bg-[var(--bg-soft)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-20">
+                <div class="space-y-8">
+                    <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold">01 // Personal Details</h2>
+                    <div class="space-y-6">
+                        <div class="border-b border-white/5 pb-4">
+                            <span class="text-gray-500 text-xs uppercase block mb-1">Full Name</span>
+                            <span class="text-xl font-semibold">Shaik Sohel</span>
+                        </div>
+                        <div class="border-b border-white/5 pb-4">
+                            <span class="text-gray-500 text-xs uppercase block mb-1">Contact</span>
+                            <a href="tel:+919381052592" class="text-xl font-semibold hover:text-lime transition">+91 9381052592</a>
+                        </div>
+                        <div class="border-b border-white/5 pb-4">
+                            <span class="text-gray-500 text-xs uppercase block mb-1">Email</span>
+                            <a href="mailto:shaiksohelsonu12@gmail.com" class="text-xl font-semibold hover:text-lime transition">shaiksohelsonu12@gmail.com</a>
+                        </div>
+                        <div class="flex space-x-6 pt-4">
+                            <a href="https://www.linkedin.com/in/shaik-sohel-664244230/" target="_blank" class="text-gray-400 hover:text-lime transition uppercase text-xs font-bold tracking-widest underline underline-offset-8">LinkedIn</a>
+                            <a href="https://github.com/Shaik-Sohel/" target="_blank" class="text-gray-400 hover:text-lime transition uppercase text-xs font-bold tracking-widest underline underline-offset-8">GitHub Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-dark p-10 rounded-2xl border-l-4 border-l-lime">
+                    <h3 class="text-xl font-light leading-relaxed text-gray-300 italic mb-8">
+                        "ISC2 Certified in Cybersecurity (CC) candidate with a strong foundation in active defense strategies, TCP/IP networking, and infrastructure hardening."
+                    </h3>
+                    <div class="space-y-6">
+                        <h5 class="text-xs uppercase tracking-widest font-bold text-white">Technical Skills Portfolio</h5>
+                        
+                        <div>
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2 font-mono">Security Tools</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Wazuh</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Splunk</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Microsoft Sentinel</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Suricata</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Wireshark</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Nmap</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Sysmon</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2 font-mono">SOC Skills</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">SIEM Monitoring</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Log Analysis</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Threat Detection</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Alert Investigation</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Incident Triage</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">MITRE ATT&CK Framework</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2 font-mono">Networking</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">TCP/IP</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">OSI Model</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Subnetting</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">DNS / DHCP</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">VLANs</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Routing & Switching</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-gray-500 text-[10px] uppercase block mb-2 font-mono">OS & Scripting</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Windows Server Administration</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Kali Linux Fundamentals</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Python</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">SQL</span>
+                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Bash</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="training" class="py-32 bg-[var(--bg-main)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16">02 // Professional Training</h2>
+            <div class="card-dark p-10 rounded-xl border-t-2 border-t-lime">
+                <div class="flex flex-col md:flex-row justify-between mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold">Cybersecurity Training</h3>
+                        <p class="text-gray-400">Talent Development Centre</p>
+                    </div>
+                    <div class="text-left md:text-right mt-2 md:mt-0">
+                        <span class="text-lime font-mono text-sm block">Duration: 6 Months</span>
+                    </div>
+                </div>
+                <ul class="grid md:grid-cols-2 gap-4 text-gray-300 text-sm">
+                    <li class="flex items-start"><span class="accent-lime mr-2">✔</span> Gained hands-on experience in Security Operations Center concepts including security monitoring, incident response, and threat detection.</li>
+                    <li class="flex items-start"><span class="accent-lime mr-2">✔</span> Monitored and analyzed security alerts and logs generated from simulated attack scenarios in lab environments.</li>
+                    <li class="flex items-start"><span class="accent-lime mr-2">✔</span> Performed log analysis and basic incident investigation using SIEM tools such as Wazuh and Splunk.</li>
+                    <li class="flex items-start"><span class="accent-lime mr-2">✔</span> Worked with network security concepts including TCP/IP, DNS, DHCP, routing, switching, subnetting, and firewall fundamentals.</li>
+                    <li class="flex items-start"><span class="accent-lime mr-2">✔</span> Gained practical exposure to Windows and Linux administration including user management, permissions, and system monitoring.</li>
+                    <li class="flex items-start"><span class="accent-lime mr-2">✔</span> Worked with virtualized environments using Hyper-V and explored cloud fundamentals in Azure.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 bg-[var(--bg-soft)] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16">03 // Guided Labs & Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-dark p-8 rounded-xl hover:border-lime transition-all group flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">SOC Homelab using Wazuh SIEM & Shuffle SOAR</h3>
+                        <ul class="text-gray-400 text-xs space-y-2 mb-6 list-disc list-inside">
+                            <li>Deployed and managed Windows and Linux agents for centralized security monitoring.</li>
+                            <li>Simulated cyberattacks and validated detections using real-world SOC use cases.</li>
+                            <li>Automated alert processing workflows through webhook-based integration between Wazuh and Shuffle.</li>
+                            <li>Performed threat detection, log analysis, alert triage, and incident investigation activities.</li>
+                            <li>Mapped security events to MITRE ATT&CK techniques to improve threat visibility.</li>
+                            <li>Leveraged Sysmon telemetry for advanced endpoint monitoring.</li>
+                            <li>Implemented File Integrity Monitoring, vulnerability detection, and active response.</li>
+                        </ul>
+                    </div>
+                    <span class="text-[10px] font-mono accent-lime uppercase tracking-widest">Wazuh // Shuffle SOAR // Sysmon // Docker // Kali Linux</span>
+                </div>
+                
+                <div class="card-dark p-8 rounded-xl hover:border-lime transition-all group flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Easy Vote (E‑Voting System)</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Created a secure digital voting platform engineered with strict voter authentication mechanisms, cryptographic data encryption safeguards, and vote integrity protection systems operating flawlessly without requiring custom EVM hardware assets.
+                        </p>
+                    </div>
+                    <span class="text-[10px] font-mono accent-lime uppercase tracking-widest mt-4">HTML // CSS // JavaScript // Security Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-32 bg-[var(--bg-main)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16">04 // Industry Certifications</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Palo Alto Networks -->
+                <a href="file:///C:/Users/Shaik/Downloads/Shaik-Sohel.pdf" target="_blank" class="card-dark p-6 rounded-xl relative flex flex-col justify-between group hover:border-lime transition-all">
+                    <div>
+                        <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">Palo Alto Networks</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Security Operations Fundamentals</h4>
+                                            </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <p class="text-xs text-gray-500 font-mono">Issued: May 17, 2026</p>
+                        <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View PDF ↗</span>
+                    </div>
+                </a>
+
+                <!-- ISC2 CC -->
+                <a href="#" class="card-dark p-6 rounded-xl border-l-2 border-l-lime flex flex-col justify-between group hover:border-lime transition-all">
+                    <div>
+                        <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">ISC2</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Certified in Cybersecurity (CC)</h4>
+                                            </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <p class="text-xs text-gray-500 font-mono">Exam Scheduled: July 7, 2026</p>
+                        <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">Info ↗</span>
+                    </div>
+                </a>
+
+                <!-- Forage -->
+                <a href="E:\Certifications\cyber completion_certificate.pdf" target="_blank" class="card-dark p-6 rounded-xl flex flex-col justify-between hover:border-lime transition-all group">
+                    <div>
+                        <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">Deloitte</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Cyber Job Simulation</h4>
+                                            </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <p class="text-xs text-gray-500 font-mono">Issued: August 22, 2025</p>
+                        <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">Verify ↗</span>
+                    </div>
+                </a>
+
+                <!-- Cisco CCNA (Udemy) -->
+                <a href="https://www.udemy.com/certificate/UC-f2445ae2-1487-4e28-91b9-679c3c77f821/" target="_blank" class="card-dark p-6 rounded-xl flex flex-col justify-between hover:border-lime transition-all group">
+                    <div>
+                        <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">Udemy</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Cisco CCNA 200-301 Track</h4>
+                        
+                    </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <p class="text-xs text-gray-500 font-mono">Issued: June 24, 2025</p>
+                        <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">Verify ↗</span>
+                    </div>
+                </a>
+
+                <!-- Python (Udemy) -->
+                <a href="https://www.udemy.com/certificate/UC-46a40e03-8175-4072-9bdd-cecc00ab8a71/" target="_blank" class="card-dark p-6 rounded-xl flex flex-col justify-between hover:border-lime transition-all group">
+                    <div>
+                        <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">Udemy</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Python Programming Masterclass</h4>
+                        
+                    </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <p class="text-xs text-gray-500 font-mono">Issued: July 18, 2022</p>
+                        <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">Verify ↗</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-32 bg-[var(--bg-soft)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16 text-center">05 // Academic Profile</h2>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-center justify-between p-8 border border-white/5 bg-[var(--bg-card)] rounded-xl">
+                    <div>
+                        <h4 class="text-xl font-bold">Andhra Loyola Institute of Engineering and Technology</h4>
+                        <p class="text-gray-400">Bachelor of Technology in Computer Science</p>
+                    </div>
+                    <div class="text-right mt-4 md:mt-0">
+                        <span class="text-lime font-mono text-lg block">CGPA: 7.3/10</span>
+                        <span class="text-gray-500 text-xs">2021 - 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="py-32 bg-[var(--bg-main)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16">06 // Achievements</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-dark p-8 rounded-xl">
+                    <span class="text-lime font-mono text-xs block mb-2">LEADERSHIP </span>
+                    <h3 class="text-xl font-bold">School Blue Team Leader</h3>
+                    <p class="text-gray-400 text-xs mt-2">Demonstrated strategic defense leadership and performance coordination across academic programs and competitive sports events.</p>
+                </div>
+                <div class="card-dark p-8 rounded-xl">
+                    <span class="text-lime font-mono text-xs block mb-2">ATHLETICS </span>
+                    <h3 class="text-xl font-bold">2-Time Football Champion</h3>
+                    <p class="text-gray-400 text-xs mt-2">Awarded 1st Prize two distinct times in football championships hosted by the Krishna District Secondary School Sports Association.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center bg-[var(--bg-soft)]">
+        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase">&copy; 2026 SHAIK SOHEL // SOC ANALYST</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('alt-theme');
+        }
+
+        function openModal(imgSrc) {
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('cert-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('cert-modal').classList.remove('auto');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
