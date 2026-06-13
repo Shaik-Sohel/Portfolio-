@@ -21,7 +21,11 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: #ffffff; transition: background-color 0.4s ease; }
         .accent-lime { color: #A3E635; }
         .bg-lime { background-color: #A3E635; }
-        .hero-mask { background: linear-gradient(to right, var(--bg-main) 15%, transparent 100%); }
+        .hero-mask { background: linear-gradient(to right, var(--bg-main) 35%, rgba(0,0,0,0.4) 100%); }
+        /* Smooth desktop desktop fade logic for reduced image layout width */
+        @media (min-width: 768px) {
+            .hero-mask { background: linear-gradient(to right, var(--bg-main) 10%, transparent 100%); }
+        }
         .card-dark { background-color: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
         .nav-blur { backdrop-filter: blur(15px); background: rgba(0,0,0,0.8); }
         
@@ -67,9 +71,9 @@
     </nav>
 
     <section id="home" class="relative h-screen flex items-center pt-20 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="Images/ShaikSohel.jpg" alt="Shaik Sohel Profile" class="w-full h-full object-cover object-top md:object-right-top opacity-60">
-            <div class="absolute inset-0 hero-mask"></div>
+        <div class="absolute inset-y-0 right-0 z-0 w-full md:w-[45%] h-full">
+            <img src="https://raw.githubusercontent.com/Shaik-Sohel/Wazuh-setup-lab/main/Images/Shaik%20Sohel.jpg" alt="Shaik Sohel Profile" class="w-full h-full object-cover object-top opacity-60 md:opacity-80">
+            <div class="absolute inset-0 hero-mask md:bg-gradient-to-r md:from-[var(--bg-main)] md:via-transparent md:to-transparent"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
             <h4 class="accent-lime font-bold tracking-[0.4em] text-xs uppercase mb-4">SOC Analyst</h4>
@@ -106,7 +110,7 @@
                         </div>
                         <div class="flex space-x-6 pt-4">
                             <a href="https://www.linkedin.com/in/shaik-sohel-664244230/" target="_blank" class="text-gray-400 hover:text-lime transition uppercase text-xs font-bold tracking-widest underline underline-offset-8">LinkedIn</a>
-                            <a href="https://github.com/Shaik-Sohel/" target="_blank" class="text-gray-400 hover:text-lime transition uppercase text-xs font-bold tracking-widest underline underline-offset-8">GitHub Portfolio</a>
+                            <a href="https://github.com/Shaik-Sohel" target="_blank" class="text-gray-400 hover:text-lime transition uppercase text-xs font-bold tracking-widest underline underline-offset-8">GitHub Portfolio</a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +140,7 @@
                                 <span class="bg-white/5 px-3 py-1 rounded text-xs">SIEM Monitoring</span>
                                 <span class="bg-white/5 px-3 py-1 rounded text-xs">Log Analysis</span>
                                 <span class="bg-white/5 px-3 py-1 rounded text-xs">Threat Detection</span>
-                                <span class="bg-white/5 px-3 py-1 rounded text-xs">Alert Investigation</span>
+                                class="bg-white/5 px-3 py-1 rounded text-xs">Alert Investigation</span>
                                 <span class="bg-white/5 px-3 py-1 rounded text-xs">Incident Triage</span>
                                 <span class="bg-white/5 px-3 py-1 rounded text-xs">MITRE ATT&CK Framework</span>
                             </div>
@@ -199,6 +203,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16">03 // Guided Labs & Projects</h2>
             <div class="grid md:grid-cols-2 gap-8">
+                
                 <div class="card-dark p-8 rounded-xl hover:border-lime transition-all group flex flex-col justify-between">
                     <div>
                         <h3 class="text-2xl font-bold mb-4">SOC Homelab using Wazuh SIEM & Shuffle SOAR</h3>
@@ -212,7 +217,10 @@
                             <li>Implemented File Integrity Monitoring, vulnerability detection, and active response.</li>
                         </ul>
                     </div>
-                    <span class="text-[10px] font-mono accent-lime uppercase tracking-widest">Wazuh // Shuffle SOAR // Sysmon // Docker // Kali Linux</span>
+                    <a href="https://github.com/Shaik-Sohel/Wazuh-setup-lab" target="_blank" class="flex justify-between items-center bg-white/5 px-4 py-3 rounded border border-white/5 hover:border-lime transition-all group/link">
+                        <span class="text-[10px] font-mono accent-lime uppercase tracking-widest">Wazuh // Shuffle SOAR // Sysmon // Docker</span>
+                        <span class="text-white text-[10px] font-mono tracking-widest uppercase opacity-60 group-hover/link:opacity-100 transition-opacity">Repository ↗</span>
+                    </a>
                 </div>
                 
                 <div class="card-dark p-8 rounded-xl hover:border-lime transition-all group flex flex-col justify-between">
@@ -233,44 +241,124 @@
             <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16">04 // Industry Certifications</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Palo Alto Networks -->
                 <a href="file:///C:/Users/Shaik/Downloads/Shaik-Sohel.pdf" target="_blank" class="card-dark p-6 rounded-xl relative flex flex-col justify-between group hover:border-lime transition-all">
                     <div>
                         <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">Palo Alto Networks</span>
                         <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Security Operations Fundamentals</h4>
-                                            </div>
+                        <p class="text-xs text-gray-400 mt-2">Verified completion of core structural elements underlying comprehensive operational infrastructure security workflows.</p>
+                    </div>
                     <div class="flex justify-between items-center mt-6">
                         <p class="text-xs text-gray-500 font-mono">Issued: May 17, 2026</p>
                         <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">View PDF ↗</span>
                     </div>
                 </a>
 
-                <!-- ISC2 CC -->
                 <a href="#" class="card-dark p-6 rounded-xl border-l-2 border-l-lime flex flex-col justify-between group hover:border-lime transition-all">
                     <div>
                         <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">ISC2</span>
                         <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Certified in Cybersecurity (CC)</h4>
-                                            </div>
+                        <p class="text-xs text-gray-400 mt-2">Comprehensive curriculum path spanning asset protection, network architecture, and incidence mapping principles.</p>
+                    </div>
                     <div class="flex justify-between items-center mt-6">
                         <p class="text-xs text-gray-500 font-mono">Exam Scheduled: July 7, 2026</p>
                         <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">Info ↗</span>
                     </div>
                 </a>
 
-                <!-- Forage -->
-                <a href="E:\Certifications\cyber completion_certificate.pdf" target="_blank" class="card-dark p-6 rounded-xl flex flex-col justify-between hover:border-lime transition-all group">
+                <a href="https://www.theforage.com/simulations/deloitte/cyber-security-j67m" target="_blank" class="card-dark p-6 rounded-xl flex flex-col justify-between hover:border-lime transition-all group">
                     <div>
                         <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">Deloitte</span>
                         <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Cyber Job Simulation</h4>
-                                            </div>
+                        <p class="text-xs text-gray-400 mt-2">Executed practical offensive and defensive tasks mimicking target architecture scenarios inside complex security models.</p>
+                    </div>
                     <div class="flex justify-between items-center mt-6">
                         <p class="text-xs text-gray-500 font-mono">Issued: August 22, 2025</p>
                         <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">Verify ↗</span>
                     </div>
                 </a>
 
-                <!-- Cisco CCNA (Udemy) -->
                 <a href="https://www.udemy.com/certificate/UC-f2445ae2-1487-4e28-91b9-679c3c77f821/" target="_blank" class="card-dark p-6 rounded-xl flex flex-col justify-between hover:border-lime transition-all group">
                     <div>
                         <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">Udemy</span>
-                        <h4 
+                        <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Cisco CCNA 200-301 Track</h4>
+                        <p class="text-xs text-gray-400 mt-2">42.5 hours of validation training covering switching structures, routing protocols, and endpoint segmentation profiles.</p>
+                    </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <p class="text-xs text-gray-500 font-mono">Issued: June 24, 2025</p>
+                        <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">Verify ↗</span>
+                    </div>
+                </a>
+
+                <a href="https://www.udemy.com/certificate/UC-46a40e03-8175-4072-9bdd-cecc00ab8a71/" target="_blank" class="card-dark p-6 rounded-xl flex flex-col justify-between hover:border-lime transition-all group">
+                    <div>
+                        <span class="text-gray-500 font-mono text-[10px] block uppercase tracking-widest group-hover:accent-lime transition-colors">Udemy</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-lime transition-colors mt-2">Python Programming Masterclass</h4>
+                        <p class="text-xs text-gray-400 mt-2">72.5-hour mastery pathway in logical algorithm creation, automation operations, and structured payload scripting.</p>
+                    </div>
+                    <div class="flex justify-between items-center mt-6">
+                        <p class="text-xs text-gray-500 font-mono">Issued: July 18, 2022</p>
+                        <span class="text-lime text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">Verify ↗</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-32 bg-[var(--bg-soft)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16 text-center">05 // Academic Profile</h2>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-center justify-between p-8 border border-white/5 bg-[var(--bg-card)] rounded-xl">
+                    <div>
+                        <h4 class="text-xl font-bold">Andhra Loyola Institute of Engineering and Technology</h4>
+                        <p class="text-gray-400">Bachelor of Technology in Computer Science</p>
+                    </div>
+                    <div class="text-right mt-4 md:mt-0">
+                        <span class="text-lime font-mono text-lg block">CGPA: 7.3/10</span>
+                        <span class="text-gray-500 text-xs">2021 - 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="py-32 bg-[var(--bg-main)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-xs uppercase tracking-[0.4em] accent-lime font-bold mb-16">06 // Achievements</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-dark p-8 rounded-xl">
+                    <span class="text-lime font-mono text-xs block mb-2">LEADERSHIP //</span>
+                    <h3 class="text-xl font-bold">School Blue Team Leader</h3>
+                    <p class="text-gray-400 text-xs mt-2">Demonstrated strategic defense leadership and performance coordination across academic programs and competitive sports events.</p>
+                </div>
+                <div class="card-dark p-8 rounded-xl">
+                    <span class="text-lime font-mono text-xs block mb-2">ATHLETICS //</span>
+                    <h3 class="text-xl font-bold">2-Time Football Champion</h3>
+                    <p class="text-gray-400 text-xs mt-2">Awarded 1st Prize two distinct times in football championships hosted by the Krishna District Secondary School Sports Association.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center bg-[var(--bg-soft)]">
+        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase">&copy; 2026 SHAIK SOHEL // SOC ANALYST</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('alt-theme');
+        }
+
+        function openModal(imgSrc) {
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('cert-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('cert-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
